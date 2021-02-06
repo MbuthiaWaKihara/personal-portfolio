@@ -12,11 +12,18 @@ export const MyLinksContainer = styled.div`
 export const MyLink = styled.div`
     width: 70%;
     height: 25%;
-    border: 1px solid #dee0df;
+    border: .5px solid #dee0df;
     margin: 10% auto;
     border-radius: 50%;
     cursor: pointer;
     align-items: center;
     justify-content: center;
     text-align: center;
+`;
+
+export const ScreenContainer = styled.div`
+    width: 90%;
+    /* padding-left: 5%;
+    padding-right: 5%; */
+    margin: 2% auto;
 `;
