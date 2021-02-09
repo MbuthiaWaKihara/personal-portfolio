@@ -12,3 +12,10 @@ body{
 a{
   text-decoration: none;
 }
+.fa-icon{
+  color: #dee0df;
+  margin-right: 5px;
+  margin-left: 5px;
+  /* width: 80%;
+  height: 100%; */
+}

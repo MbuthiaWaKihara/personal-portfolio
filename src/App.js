@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import Me from './images/me.jpg';
 import MeChess from './images/me2.jpg';
 import Typist from 'react-typist';
+import AppStyle from './AppStyle';
 
 //MUI
 import { ThemeProvider as MUIThemeProvider } from '@material-ui/core/styles';
@@ -26,11 +27,19 @@ import GithubIcon from '@material-ui/icons/GitHub';
 
 //components
 import TopNav from './components/TopNav';
+import ContentSlider from './components/ContentSlider';
+import ContactForm from './components/ContactForm';
 import {
   MyLinksContainer,
   MyLink,
   ScreenContainer,
 } from './custom-styled-components';
+
+//utils
+import myServices from './utils/my-services';
+import experiences from './utils/experiences';
+import education from './utils/education';
+import skills from './utils/skills';
 
 const theme = createMuiTheme({
   palette: {
@@ -62,142 +71,7 @@ const theme = createMuiTheme({
   },
 });
 
-const useStyles = makeStyles((innerTheme) => ({
-  root: {
-    position: 'fixed',
-    bottom: innerTheme.spacing(2),
-    right: innerTheme.spacing(2),
-    [innerTheme.breakpoints.up('lg')]: {
-      right: innerTheme.spacing(20),
-    }
-  },
-  rootContainer: {
-    // borderTopColor: 'red',
-    // borderStyle: 'solid',
-    // borderWidth: 5,
-    // marginTop: '7.5%',
-  },
-  stickyLeft: {
-    height: window.innerHeight,
-    width: '40%',
-    position: 'fixed',
-    top: 0,
-    left: 0,
-    zIndex: 1000,
-    [theme.breakpoints.down('md')]: {
-      display: 'none',
-    }
-  },
-  profileImage: {
-    width: '100%',
-    height: '90%',
-    marginTop: '15%',
-  },
-  profileImage2: {
-    width: '100%',
-    marginTop: '15%',
-    marginBottom: '5%',
-    [innerTheme.breakpoints.up('lg')]: {
-      display: 'none',
-    }
-  },
-  scrollCenter: {
-    paddingTop: '10%',
-    [innerTheme.breakpoints.up('lg')]: {
-      marginLeft: '35%',
-    },
-    [innerTheme.breakpoints.down('md')]: {
-      paddingTop: 0,
-    }
-  },
-  stickyRight: {
-    // borderWidth: 1,
-    // borderColor: 'red',
-    // borderStyle: 'solid',
-    borderLeftStyle: 'solid',
-    borderLeftWidth: 1,
-    borderLeftColor: '#dee0df',
-    position: 'fixed',
-    top: 0,
-    right: 0,
-    height: window.innerHeight,
-    width: '6.5%',
-    [theme.breakpoints.down('md')]: {
-      display: 'none',
-    }
-  },
-  socialMediaIcon: {
-    color: '#dee0df',
-    marginTop: '25%',
-  },
-  myLinksContainer: {
-    [theme.breakpoints.up('md')]: {
-      display: 'none',
-    }
-  },
-  firstName: {
-    color: innerTheme.palette.primary.contrastText,
-    marginBottom: '4%',
-    [theme.breakpoints.down('sm')]: {
-      fontSize: '2em',
-    }
-  },
-  title: {
-    fontWeight: 'bold',
-    color: innerTheme.palette.primary.contrastText,
-    marginBottom: '4%',
-    [theme.breakpoints.down('sm')]: {
-      fontSize: '2em',
-    }
-  },
-  subtitle: {
-    fontWeight: 'bold',
-  },
-  typingAnimation: {
-    fontFamily: 'monospace',
-    color: '#00FFC2',
-    fontSize: '2em',
-    [innerTheme.breakpoints.down('sm')]: {
-      fontSize: '1em',
-      marginTop: '15%',
-    }
-  },
-  bodyText: {
-    color: '#dee0df',
-    marginTop: '5%',
-    marginBottom: '5%',
-  },
-  contactButton: {
-    marginTop: '5%',
-    marginBottom: '5%',
-    borderRadius: 0,
-    borderWidth: 5,
-  },
-  bottomLinksContainer: {
-    width: '100%',
-    height: '90px',
-    display: 'flex',
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'center',
-    marginTop: '15%',
-    [innerTheme.breakpoints.up('md')]: {
-      display: 'none',
-    }
-  },
-  bottomLink: {
-    borderWidth: 1,
-    borderStyle: 'solid',
-    borderColor: '#dee0df',
-    textAlign: 'center',
-    padding: 1,
-    margin: 5,
-    borderRadius: 50,
-    width: '20%',
-    height: '80%',
-    cursor: 'pointer',
-  }
-}));
+const useStyles = makeStyles(AppStyle);
 
 function ScrollTop(props) {
   const { children } = props;
@@ -329,10 +203,156 @@ function App() {
         variant="body1"
         className={classes.bodyText}
         >
-          I love working in a productive team. I’m currently working part time with Iconic King, a software company based in Nairobi that majors in betting systems and internet games. I’m also pursuing a Bachelor’s degree in Computer Science at Moi University.
+          I love working in a productive team. I’m currently a freelancer. I’m also pursuing a Bachelor’s degree in Computer Science at Moi University.
         </Typography>
+        <div
+        className={classes.aboutSummaryContainer}
+        >
+          <div
+          className={classes.aboutSummaryUnit}
+          >
+            <Typography
+            variant="h6"
+            color="secondary"
+            className={classes.aboutTitle}
+            >
+              AGE <span className={classes.aboutValue}>23</span>
+            </Typography>
+          </div>
+          <div
+          className={classes.aboutSummaryUnit}
+          >
+            <Typography
+            variant="h6"
+            color="secondary"
+            className={classes.aboutTitle}
+            >
+              RESIDENCE <span className={classes.aboutValue}>Nairobi</span>
+            </Typography>
+          </div>
+          <div
+          className={classes.aboutSummaryUnit}
+          >
+            <Typography
+            variant="h6"
+            color="secondary"
+            className={classes.aboutTitle}
+            >
+              EMAIL <span className={classes.aboutValue}>kiharambuthia@gmail.com</span>
+            </Typography>
+          </div>
+          <div
+          className={classes.aboutSummaryUnit}
+          >
+            <Typography
+            variant="h6"
+            color="secondary"
+            className={classes.aboutTitle}
+            >
+              PHONE <span className={classes.aboutValue}>+254700570450</span>
+            </Typography>
+          </div>
+        </div>
        </ScreenContainer>
-
+       <Divider />
+      
+      {/* about2 */}
+      <ScreenContainer>
+      <Typography variant="h2" className={classes.title}>
+          My Services
+        </Typography>
+        <Typography 
+        variant="h5" 
+        color="secondary"
+        className={classes.subtitle}
+        >
+          WHAT I DO
+        </Typography>
+        <ContentSlider
+        elements={myServices}
+        />
+      </ScreenContainer>
+      <Divider />
+      <ScreenContainer>
+      <Typography variant="h2" className={classes.title}>
+          Experience
+        </Typography>
+        <Typography 
+        variant="h5" 
+        color="secondary"
+        className={classes.subtitle}
+        >
+          I'VE WORKED WITH
+        </Typography>
+        <ContentSlider
+        elements={experiences}
+        />
+      </ScreenContainer>
+      <Divider />
+      <ScreenContainer>
+      <Typography variant="h2" className={classes.title}>
+          Education
+        </Typography>
+        <Typography 
+        variant="h5" 
+        color="secondary"
+        className={classes.subtitle}
+        >
+          LEARNED AT
+        </Typography>
+        <ContentSlider
+        elements={education}
+        />
+      </ScreenContainer>
+      <Divider />
+      <ScreenContainer>
+      <Typography variant="h2" className={classes.title}>
+          Coding Skills
+        </Typography>
+        <Typography 
+        variant="h5" 
+        color="secondary"
+        className={classes.subtitle}
+        >
+          DEVELOPING ON
+        </Typography>
+        <div
+        className={classes.skillsContainer}
+        >
+          {skills}
+        </div>
+      </ScreenContainer>
+      <Divider />
+      <ScreenContainer>
+      <Typography variant="h2" className={classes.title}>
+          Portfolio
+        </Typography>
+        <Typography 
+        variant="h5" 
+        color="secondary"
+        className={classes.subtitle}
+        >
+          LATEST WORKS
+        </Typography>
+      </ScreenContainer>
+      <Divider />
+      <ScreenContainer>
+      <Typography variant="h2" className={classes.title}>
+          Contact 
+        </Typography>
+        <Typography 
+        variant="h5" 
+        color="secondary"
+        className={classes.subtitle}
+        >
+          TALK TO ME
+        </Typography>
+        <div
+        className={classes.contactContainer}
+        >
+          <ContactForm />
+        </div>
+      </ScreenContainer>
 
        <div
        className={classes.bottomLinksContainer}
@@ -356,7 +376,7 @@ function App() {
            <GithubIcon fontSize="large" className={classes.socialMediaIcon} />
          </div>
        </div>
-      
+      </Grid>
       <Grid item lg={1} className={classes.stickyRight}>
         <MyLinksContainer>
           <MyLink onClick={() => redirectNewTab('https://www.linkedin.com/in/evanson-mbuthia-kihara-85b473195/')}>
@@ -369,7 +389,6 @@ function App() {
             <GithubIcon fontSize="large" className={classes.socialMediaIcon} />
           </MyLink>
         </MyLinksContainer>
-      </Grid>
       </Grid>
     </Grid>
     <ScrollTop >

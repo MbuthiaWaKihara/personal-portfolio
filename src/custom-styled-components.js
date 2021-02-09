@@ -19,6 +19,9 @@ export const MyLink = styled.div`
     align-items: center;
     justify-content: center;
     text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 `;
 
 export const ScreenContainer = styled.div`
