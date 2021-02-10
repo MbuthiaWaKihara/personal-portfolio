@@ -1,16 +1,22 @@
 import React from 'react';
+import axios from 'axios';
 
 //MUI
 import { makeStyles } from '@material-ui/core/styles';
+
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
+import Snackbar from '@material-ui/core/Snackbar';
+import CircularProgress from '@material-ui/core/CircularProgress';
+
+import Alert from '@material-ui/lab/Alert';
 
 const useStyles = makeStyles(theme => ({
     container: {
-        width: '50%',
+        width: '90%',
         marginTop: '10%',
         [theme.breakpoints.down('sm')]: {
-            width: '100%',
+            
         }
     },
     formField: {
@@ -23,14 +29,85 @@ const useStyles = makeStyles(theme => ({
         marginTop: '5%',
         marginBottom: '5%',
         borderRadius: 50,
+    },
+    loadingIndicator: {
+        marginLeft: '5%',
     }
 }));
 
 const ContactForm = () => {
 
     const classes = useStyles();
+    const [open, setOpen] = React.useState(false);
+    const [loading, setLoading] = React.useState(false);
+    const [alertInfo, setAlertInfo] = React.useState({
+        severity: 'info',
+        message: 'default',
+    });
+    const [formInfo, setFormInfo] = React.useState({
+        name: '',
+        email: '',
+        message: '',
+    });
+    
+    const handleChange = event => {
+        setFormInfo({
+            ...formInfo,
+            [event.target.name]: event.target.value,
+        })
+    }
+    const handleClose = () => {
+        setOpen(false);
+    }
+
+    const sendMail = async event => {
+        event.preventDefault();
+        
+        //validate
+        if(
+            formInfo.name.trim() === '' ||
+            formInfo.email.trim() === '' ||
+            formInfo.message.trim() === ''
+        ){
+            setAlertInfo({
+                severity: 'info',
+                message: 'please fill all the fields',
+            });
+            setOpen(true);
+            return;
+        }
+
+        setLoading(true);
+
+        try {
+            await axios.post('https://us-central1-ohnestpos-db448.cloudfunctions.net/app/portfolio/sendmailtogmail', formInfo);
+            setAlertInfo({
+                severity: 'success',
+                message: `Thanks for your message! I'll mail my response`,
+            });
+            setLoading(false);
+            setFormInfo({
+                name: '',
+                email: '',
+                message: '',
+            });
+            setOpen(true);
+        } catch(error) {
+            setAlertInfo({
+                severity: 'error',
+                message: 'oops, something went wrong. Please try again', 
+            });
+            setLoading(false);
+            setOpen(true);
+        }
+    }
     return (
         <>
+            <Snackbar open={open} autoHideDuration={2000} onClose={handleClose}>
+                <Alert onClose={handleClose} severity={alertInfo.severity}>
+                {alertInfo.message}
+                </Alert>
+            </Snackbar>
             <form
             className={classes.container}
             noValidate
@@ -43,6 +120,8 @@ const ContactForm = () => {
                 name="name"
                 className={classes.formField}
                 variant="outlined"
+                value={formInfo.name}
+                onChange={handleChange}
                 />
                 <TextField
                 required
@@ -52,6 +131,8 @@ const ContactForm = () => {
                 type="email"
                 className={classes.formField}
                 variant="outlined"
+                value={formInfo.email}
+                onChange={handleChange}
                 />
                 <TextField
                 required
@@ -62,12 +143,16 @@ const ContactForm = () => {
                 name="message"
                 className={classes.formField}
                 variant="outlined"
+                value={formInfo.message}
+                onChange={handleChange}
                 />
                 <Button
                 type="submit"
                 variant="outlined"
                 className={classes.formSubmit}
-                >SEND</Button>
+                onClick={sendMail}
+                disabled={loading}
+                >SEND{loading && <CircularProgress size="1em" className={classes.loadingIndicator}/>}</Button>
             </form>
         </>
     )

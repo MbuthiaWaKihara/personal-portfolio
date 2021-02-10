@@ -7,7 +7,7 @@ import Typist from 'react-typist';
 import AppStyle from './AppStyle';
 
 //MUI
-import { ThemeProvider as MUIThemeProvider } from '@material-ui/core/styles';
+import { ThemeProvider as MUIThemeProvider, useTheme } from '@material-ui/core/styles';
 import createMuiTheme from '@material-ui/core/styles/createMuiTheme';
 
 import Typography from '@material-ui/core/Typography';
@@ -18,6 +18,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import Zoom from '@material-ui/core/Zoom';
 import useScrollTrigger from '@material-ui/core/useScrollTrigger';
 import Button from '@material-ui/core/Button';
+import useMediaQuery from '@material-ui/core/useMediaQuery';
 
 
 import KeyboardArrowUpIcon from '@material-ui/icons/KeyboardArrowUp';
@@ -29,6 +30,7 @@ import GithubIcon from '@material-ui/icons/GitHub';
 import TopNav from './components/TopNav';
 import ContentSlider from './components/ContentSlider';
 import ContactForm from './components/ContactForm';
+import MySummary from './components/MySummary';
 import {
   MyLinksContainer,
   MyLink,
@@ -102,15 +104,44 @@ ScrollTop.propTypes = {
 
 function App() {
   const classes = useStyles();
+  const innerTheme = useTheme();
+  const callMatch = useMediaQuery(innerTheme.breakpoints.down('sm'));
+  const [pageElements, setPageElements] = React.useState(null);
 
   const redirectNewTab = url => {
     window.open(url, '_blank');
   }
 
+  const scrollToTargetView = viewId => {
+    const element = document.querySelector(`#${viewId}`);
+    element.scrollIntoView({behavior: 'smooth',});
+  }
+
+  const callOrScroll = () => {
+    
+    if(callMatch) {
+      window.open('tel:+254700570450');
+      return
+    }
+    scrollToTargetView("contact-section");
+  }
+
+  React.useEffect(() => {
+    setPageElements({
+      aboutSection: document.querySelector("#about-section"),
+      resumeSection: document.querySelector("#resume-section"),
+      portfolioSection: document.querySelector("#portfolio-section"),
+      contactSection: document.querySelector("#contact-section"),
+    });
+  }, []);
+
   return (
     <>
     <MUIThemeProvider theme={theme}>
-    <TopNav />
+    <TopNav 
+    scrollToTargetView={scrollToTargetView}
+    pageElements={pageElements}
+    />
     <Grid container className={classes.rootContainer}>
       <Grid item lg={4} className={classes.stickyLeft}>
         <img
@@ -127,6 +158,7 @@ function App() {
         />
 
         {/* home */}
+       <div id="home-section" />
        <ScreenContainer>
        <Typography variant="h2" className={classes.firstName}>
           I'm Evans
@@ -171,11 +203,13 @@ function App() {
         <Button
         variant="outlined"
         className={classes.contactButton}
+        onClick={callOrScroll}
         >CONTACT ME </Button>
        </ScreenContainer>
        <Divider/>
 
        {/* about1 */}
+       <div id="about-section" />
        <ScreenContainer>
        <Typography variant="h2" className={classes.title}>
           About Me
@@ -273,6 +307,9 @@ function App() {
         />
       </ScreenContainer>
       <Divider />
+
+      {/* resume */}
+      <div id="resume-section" />
       <ScreenContainer>
       <Typography variant="h2" className={classes.title}>
           Experience
@@ -289,6 +326,8 @@ function App() {
         />
       </ScreenContainer>
       <Divider />
+
+      {/* resume2 */}
       <ScreenContainer>
       <Typography variant="h2" className={classes.title}>
           Education
@@ -323,6 +362,8 @@ function App() {
         </div>
       </ScreenContainer>
       <Divider />
+      {/* portfolio */}
+      <div id="portfolio-section" />
       <ScreenContainer>
       <Typography variant="h2" className={classes.title}>
           Portfolio
@@ -335,7 +376,10 @@ function App() {
           LATEST WORKS
         </Typography>
       </ScreenContainer>
+      
       <Divider />
+      {/* contact */}
+      <div id="contact-section" />
       <ScreenContainer>
       <Typography variant="h2" className={classes.title}>
           Contact 
@@ -347,11 +391,15 @@ function App() {
         >
           TALK TO ME
         </Typography>
-        <div
-        className={classes.contactContainer}
-        >
-          <ContactForm />
-        </div>
+  
+        <Grid container>
+          <Grid item lg={6} md={6} sm={12} xs={12}>
+            <ContactForm />
+          </Grid>
+          <Grid item lg={6} md={6} sm={12} xs={12}>
+            <MySummary />
+          </Grid>
+        </Grid>
       </ScreenContainer>
 
        <div

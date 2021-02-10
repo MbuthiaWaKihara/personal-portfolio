@@ -1,5 +1,7 @@
 import React from 'react';
 import MyLogo from '../images/my-logo.png';
+import NavLinks from './NavLinks';
+import DrawerLinks from './DrawerLinks';
 
 //MUI
 import PropTypes from 'prop-types';
@@ -35,8 +37,39 @@ function ElevationScroll({children, window}) {
   };
 
 
-const TopNav = () => {
+const TopNav = ({scrollToTargetView, pageElements}) => {
     const classes = useStyles();
+    const [currentY, setCurrentY] = React.useState(0);
+    const [currentSection, setCurrentSection] = React.useState("home-section");
+
+    React.useEffect(() => {
+      window.addEventListener('scroll', () => {
+        setCurrentY(window.scrollY);
+      });
+    }, []);
+
+    React.useEffect(() => {
+      if(pageElements){
+  
+        if(currentY >= 0 && currentY < pageElements.aboutSection.getBoundingClientRect().bottom && currentSection !== "home-section") {
+          setCurrentSection("home-section")
+        }
+        if(currentY >= pageElements.aboutSection.getBoundingClientRect().bottom && currentY < pageElements.resumeSection.getBoundingClientRect().bottom && currentSection !== "about-section") {
+          setCurrentSection("about-section")
+        }
+        if(currentY > pageElements.resumeSection.getBoundingClientRect().bottom && currentY < pageElements.portfolioSection.getBoundingClientRect().bottom && currentSection !== "resume-section") {
+          setCurrentSection("resume-section")
+        }
+        if(currentY > pageElements.portfolioSection.getBoundingClientRect().bottom && currentY < pageElements.contactSection.getBoundingClientRect().bottom && currentSection !== "portfolio-section") {
+          setCurrentSection("portfolio-section")
+        }
+        if(currentY > pageElements.contactSection.getBoundingClientRect().bottom && currentSection !== "contact-section") {
+          setCurrentSection("contact-section")
+        }
+      }
+      //eslint-disable-next-line
+    }, [currentY]);
+
     return (
         <>
             <ElevationScroll>
@@ -46,6 +79,14 @@ const TopNav = () => {
                         src={MyLogo}
                         alt="My Logo"
                         className={classes.image}
+                        />
+                        <NavLinks 
+                        scrollToTargetView={scrollToTargetView}
+                        currentSection={currentSection}
+                        />
+                        <DrawerLinks 
+                        scrollToTargetView={scrollToTargetView}
+                        currentSection={currentSection}
                         />
                     </Toolbar>
                 </AppBar>

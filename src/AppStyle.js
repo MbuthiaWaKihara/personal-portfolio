@@ -181,10 +181,6 @@ const AppStyle = theme => ({
         width: '100%',
         marginTop: '10%',
       },
-      contactContainer: {
-        display: 'flex',
-        flexDirection: 'row',
-      }
 });
 
 export default AppStyle;

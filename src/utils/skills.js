@@ -34,17 +34,17 @@ const rawSkills = [
     {
         name: 'Firebase',
         value: 75,
-        notes: ['Realtime Database', 'Firestore Database', 'Mobile App Intergration', 'Web App Intergration', 'Hosting', 'Cloud Functions', 'Deployment'],
+        notes: ['Realtime Database', 'Firestore Database', 'Mobile App Intergration', 'Web App Intergration', 'Hosting', 'Cloud Functions', 'Distribution'],
     },
     {
         name: 'PHP',
-        value: 72,
-        notes: ['Procedural PHP', 'OOP PHP'],
+        value: 69,
+        notes: ['Procedural PHP', 'OOP PHP', 'Laravel'],
     },
     {
-        name: 'Laravel',
-        value: 55,
-        notes: ['Building APIs']
+        name: 'Collaboration',
+        value: 70,
+        notes: ['Git', 'Github', 'Gitlab', 'Trello', 'Slack', 'Jira', 'Confluence', 'Ngrok'],
     },
 ]
 
