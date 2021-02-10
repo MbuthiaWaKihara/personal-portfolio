@@ -42,6 +42,7 @@ import myServices from './utils/my-services';
 import experiences from './utils/experiences';
 import education from './utils/education';
 import skills from './utils/skills';
+import latestWorks from './utils/latest-works';
 
 const theme = createMuiTheme({
   palette: {
@@ -375,6 +376,9 @@ function App() {
         >
           LATEST WORKS
         </Typography>
+        <ContentSlider
+        elements={latestWorks}
+        />
       </ScreenContainer>
       
       <Divider />

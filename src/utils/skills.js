@@ -14,7 +14,7 @@ const rawSkills = [
     {
         name: 'NodeJS',
         value: 79,
-        notes: ['Core', 'Express', 'With TypeScript @types/node'],
+        notes: ['npm', 'nvm', 'Core', 'Express', 'With TypeScript @types/node'],
     },
     {
         name: 'React',
