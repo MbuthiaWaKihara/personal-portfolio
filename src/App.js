@@ -274,7 +274,7 @@ function App() {
             color="secondary"
             className={classes.aboutTitle}
             >
-              EMAIL <span className={classes.aboutValue}>kiharambuthia@gmail.com</span>
+              PHONE <span className={classes.aboutValue}>+254700570450</span>
             </Typography>
           </div>
           <div
@@ -285,7 +285,7 @@ function App() {
             color="secondary"
             className={classes.aboutTitle}
             >
-              PHONE <span className={classes.aboutValue}>+254700570450</span>
+              EMAIL <span className={classes.aboutValue}>kiharambuthia@gmail.com</span>
             </Typography>
           </div>
         </div>
