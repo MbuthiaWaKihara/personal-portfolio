@@ -108,6 +108,7 @@ function App() {
   const innerTheme = useTheme();
   const callMatch = useMediaQuery(innerTheme.breakpoints.down('sm'));
   const [pageElements, setPageElements] = React.useState(null);
+  const date = new Date();
 
   const redirectNewTab = url => {
     window.open(url, '_blank');
@@ -251,7 +252,7 @@ function App() {
             color="secondary"
             className={classes.aboutTitle}
             >
-              AGE <span className={classes.aboutValue}>23</span>
+              AGE <span className={classes.aboutValue}>{date.getFullYear() - 1998}</span>
             </Typography>
           </div>
           <div

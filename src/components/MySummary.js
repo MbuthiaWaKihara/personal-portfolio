@@ -52,6 +52,7 @@ const useStyles = makeStyles(theme => ({
 const MySummary = () => {
 
     const classes = useStyles();
+    const date = new Date();
     return (
         <>
             <div
@@ -76,7 +77,7 @@ const MySummary = () => {
                     marginTop: '10%',
                 }}
                 >
-                AGE <span className={classes.aboutValue}>23</span>
+                AGE <span className={classes.aboutValue}>{date.getFullYear() - 1998}</span>
                 </Typography>
                 <Typography
                 variant="h6"
@@ -92,7 +93,7 @@ const MySummary = () => {
                 className={classes.aboutTitle}
                 
                 >
-                EMAIL <span className={classes.aboutValue}>kiharambuthia@gmail.com</span>
+                PHONE <span className={classes.aboutValue}>+254700570450</span>
                 </Typography>
                 <Typography
                 variant="h6"
@@ -100,7 +101,7 @@ const MySummary = () => {
                 className={classes.aboutTitle}
                 
                 >
-                PHONE <span className={classes.aboutValue}>+254700570450</span>
+                EMAIL <span className={classes.aboutValue}>kiharambuthia@gmail.com</span>
                 </Typography>
                 <img
                 src={MyLogo}

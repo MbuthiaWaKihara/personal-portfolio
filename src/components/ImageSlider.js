@@ -40,7 +40,7 @@ const useStyles = makeStyles(theme => ({
     }
 }));
 
-const ImageSlider = () => {
+const ImageSlider = ({name}) => {
 
     const classes = useStyles();
     const [currentImageIndex, setCurrentImageIndex] = React.useState(0);
@@ -48,11 +48,46 @@ const ImageSlider = () => {
     const [images, setImages] = React.useState([MyLogo]);
 
     const determineImagesArray = async () => {
-        const image1 = await import('../images/covid-live/image1.png');
-        const image2 = await import('../images/covid-live/image2.png');
-        const image3 = await import ('../images/covid-live/image3.png');
-    
-        setImages([image1.default, image2.default, image3.default]);
+        let directory = '';
+        let imagesLength = 0;
+        let dynamicImports = [];
+
+        switch(name) {
+            case 'Tension Chess Clock':
+                imagesLength = 6;
+                directory = 'tcc';
+                break;
+            case 'Sorting Algorithms Visualizer':
+                imagesLength = 5;
+                directory = 'sorting-algs-visualizer';
+                break;
+            case 'Covid-19 Live Feed':
+                imagesLength = 3;
+                directory = 'covid-live';
+                break;
+            case 'Ohnest Point of Sale': 
+                imagesLength = 6;
+                directory = 'ohnest-pos';
+                break;
+            case 'Chess Bet/Chess MVP':
+                imagesLength = 3;
+                directory = 'chess-bet';
+                break;
+            default:
+                return;
+        }
+
+        for(let counter = 1; counter <= imagesLength; counter++) {
+            dynamicImports = [
+                ...dynamicImports,
+                import(`../images/${directory}/image${counter}.png`),
+            ];
+        }
+
+        const modules = await Promise.all(dynamicImports);
+        const defaultExports = modules.map(module => module.default);
+
+        setImages([...defaultExports]);
     }
 
     const changeCurrentUpwards = () => {
@@ -73,7 +108,8 @@ const ImageSlider = () => {
 
     React.useEffect(() => {
         determineImagesArray();
-    }, []);
+        //eslint-disable-next-line
+    }, [name]);
 
     React.useEffect(() => {
         console.log("images", images);

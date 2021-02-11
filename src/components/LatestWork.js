@@ -66,6 +66,7 @@ const LatestWork = ({latestWork}) => {
                 >{latestWork.name}</Typography>
 
                 <ImageSlider
+                name={latestWork.name}
                 />
 
                 {

@@ -16,9 +16,9 @@ const useStyles = makeStyles(theme => ({
         marginTop: '5%',
         display: 'flex',
         justifyContent: 'flex-end',
-        [theme.breakpoints.down('sm')]: {
-            display: 'none',
-        }
+        // [theme.breakpoints.down('sm')]: {
+        //     display: 'none',
+        // }
     },
     contentContainer: {
         // borderWidth: 1,
@@ -37,8 +37,9 @@ const useStyles = makeStyles(theme => ({
         height: '50px',
         display: 'flex',
         justifyContent: 'flex-end',
+        marginTop: '5%',
         [theme.breakpoints.up('md')]: {
-            display: 'none',
+            height: '80px',
         }
     },
 }));
@@ -66,7 +67,7 @@ const ContentSlider = ({elements}) => {
 
     return (
         <>
-            <div
+            {/* <div
             className={classes.topControlContainer}
             >
                 <ControlsContainer
@@ -75,7 +76,7 @@ const ContentSlider = ({elements}) => {
                 changeCurrentUpwards={changeCurrentUpwards}
                 changeCurrentDownwards={changeCurrentDownwards}
                 />
-            </div>
+            </div> */}
             <div
             className={classes.contentContainer}
             >
