@@ -3,14 +3,6 @@ import LatestWork from '../components/LatestWork';
 const rawLatestWorks = [
     {
         name: 'Tension Chess Clock',
-        images: [
-            {url: "tcc/first.png"},
-            {url: "tcc/second.png"},
-            {url: "tcc/third.png"},
-            {url: "tcc/fourth.png"},
-            {url: "tcc/fifth.png"},
-            {url: "tcc/sixth.png"},
-        ],
         links: [
             {
                 title: "VIEW ON GOOGLE PLAY STORE",
@@ -32,13 +24,6 @@ const rawLatestWorks = [
     },
     {
         name: 'Sorting Algorithms Visualizer',
-        images: [
-            {url: "sorting-algs-visualizer/image1.png"},
-            {url: "sorting-algs-visualizer/image2.png"},
-            {url: "sorting-algs-visualizer/image3.png"},
-            {url: "sorting-algs-visualizer/image4.png"},
-            {url: "sorting-algs-visualizer/image5.png"},
-        ],
         links: [
             {
                 title: "VIEW ORIGINAL DEMO (DESIGNED DESKTOP ONLY)",
@@ -63,11 +48,6 @@ const rawLatestWorks = [
     },
     {
         name: 'Covid-19 Live Feed',
-        images: [
-            {url: "covid-live/image1.png"},
-            {url: "covid-live/image2.png"},
-            {url: "covid-live/image3.png"},
-        ],
         links: [
             {
                 title: "VIEW DEMO",
@@ -86,14 +66,6 @@ const rawLatestWorks = [
     },
     {
         name: 'Ohnest Point of Sale',
-        images: [
-            {url: "ohnest-pos/image1.png"},
-            {url: "ohnest-pos/image2.png"},
-            {url: "ohnest-pos/image3.png"},
-            {url: "ohnest-pos/image4.png"},
-            {url: "ohnest-pos/image5.png"},
-            {url: "ohnest-pos/image6.png"},
-        ],
         links: [
             {
                 title: "VIEW FIGMA INTERACTIVE PROTOTYPE",
@@ -111,11 +83,6 @@ const rawLatestWorks = [
     },
     {
         name: 'Chess Bet/Chess MVP',
-        images: [
-            {url: "chess-bet/image1.jpg"},
-            {url: "chess-bet/image2.jpg"},
-            {url: "chess-bet/image3.jpg"},
-        ],
         links: [
             {
                 title: "VIEW CHESS BET HOME PAGE",

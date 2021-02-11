@@ -1,9 +1,8 @@
 import React from 'react';
-import ImageSlider from 'react-simple-image-slider';
+import ImageSlider from './ImageSlider';
 
 //MUI
-import { useTheme, makeStyles } from '@material-ui/core/styles';
-import useMediaQuery from '@material-ui/core/useMediaQuery';
+import { makeStyles } from '@material-ui/core/styles';
 
 import Accordion from '@material-ui/core/Accordion';
 import AccordionSummary from '@material-ui/core/AccordionSummary';
@@ -33,8 +32,8 @@ const useStyles = makeStyles(theme => ({
         }
     },
     link: {
-        marginTop: '2%',
-        marginBottom: '2%',
+        marginTop: '5%',
+        marginBottom: '5%',
         fontWeight: 'bold',
         cursor: 'pointer',
         [theme.breakpoints.down('sm')]: {
@@ -52,14 +51,9 @@ const LatestWork = ({latestWork}) => {
 
     const classes = useStyles();
 
-    const theme = useTheme();
-    const xs = useMediaQuery(theme.breakpoints.only('xs'));
-    const sm = useMediaQuery(theme.breakpoints.only('sm'));
-    const md = useMediaQuery(theme.breakpoints.only('md'));
-
     const redirectNewTab = url => {
         window.open(url, '_blank');
-      } 
+    } 
 
     return (
         <>
@@ -70,16 +64,8 @@ const LatestWork = ({latestWork}) => {
                 variant="h4"
                 className={classes.title}
                 >{latestWork.name}</Typography>
+
                 <ImageSlider
-                images={latestWork.images}
-                width={xs ? 300 : sm ? 400 : md ? 500 : 600 }
-                height={xs ? 200 : sm ? 300 : md ? 400 : 500}
-                showBullets={true}
-                showNavs={true}
-                style={{
-                    width: '100%',
-                }}
-                bgColor="#373B40"
                 />
 
                 {
@@ -89,6 +75,7 @@ const LatestWork = ({latestWork}) => {
                         className={classes.link}
                         color="textSecondary"
                         onClick={() => redirectNewTab(link.url)}
+                        key={link.title}
                         >{link.title}</Typography>
                     ))
                 }

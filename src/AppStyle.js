@@ -28,11 +28,13 @@ const AppStyle = theme => ({
         width: '100%',
         height: '90%',
         marginTop: '15%',
+        objectFit: 'cover',
       },
       profileImage2: {
         width: '100%',
         marginTop: '15%',
         marginBottom: '5%',
+        objectFit: 'cover',
         [theme.breakpoints.up('lg')]: {
           display: 'none',
         }

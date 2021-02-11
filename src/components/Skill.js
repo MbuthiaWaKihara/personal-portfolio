@@ -89,10 +89,11 @@ const Skill = ({skill}) => {
               className={classes.popperPaper}
               >
                 {
-                  skill.notes.map(note => (
+                  skill.notes.map((note, index) => (
                     <Typography
                     variant="body1"
                     className={classes.note}
+                    key={index}
                     >{'>  '}{note}</Typography>
                   ))
                 }
