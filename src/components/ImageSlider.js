@@ -46,8 +46,11 @@ const useStyles = makeStyles(theme => ({
         color: '#fff',
     },
     selectedImage: {
-        height: '50%',
+        height: '80%',
         objectFit: 'cover',
+        [theme.breakpoints.down('sm')]: {
+            height: '50%',
+        }
     }
 }));
 
