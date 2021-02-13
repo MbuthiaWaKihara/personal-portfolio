@@ -289,6 +289,13 @@ function App() {
             </Typography>
           </div>
         </div>
+        <Button
+        variant="outlined"
+        className={classes.contactButton}
+        component="a"
+        href="/my-cv.docx"
+        download
+        >DOWNLOAD CV </Button>
        </ScreenContainer>
        <Divider />
       
