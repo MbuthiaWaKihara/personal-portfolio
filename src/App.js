@@ -7,14 +7,13 @@ import Typist from 'react-typist';
 import AppStyle from './AppStyle';
 
 //MUI
-import { ThemeProvider as MUIThemeProvider, useTheme } from '@material-ui/core/styles';
+import { ThemeProvider as MUIThemeProvider, useTheme, makeStyles } from '@material-ui/core/styles';
 import createMuiTheme from '@material-ui/core/styles/createMuiTheme';
 
 import Typography from '@material-ui/core/Typography';
 import Divider from '@material-ui/core/Divider';
 import Grid from '@material-ui/core/Grid';
 import Fab from '@material-ui/core/Fab';
-import { makeStyles } from '@material-ui/core/styles';
 import Zoom from '@material-ui/core/Zoom';
 import useScrollTrigger from '@material-ui/core/useScrollTrigger';
 import Button from '@material-ui/core/Button';
