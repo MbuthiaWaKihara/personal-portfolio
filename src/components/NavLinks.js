@@ -19,6 +19,7 @@ const useStyles = makeStyles(theme => ({
         }
     },
     link: {
+        fontSize: '1em',
         cursor: 'pointer',
     }
 }));

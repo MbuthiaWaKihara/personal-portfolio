@@ -81,6 +81,7 @@ const AppStyle = theme => ({
       },
       title: {
         fontWeight: 'bold',
+        fontSize: '2em',
         color: theme.palette.primary.contrastText,
         marginBottom: '4%',
         [theme.breakpoints.down('sm')]: {
@@ -88,6 +89,7 @@ const AppStyle = theme => ({
         }
       },
       subtitle: {
+        fontSize: '1em',
         fontWeight: 'bold',
         [theme.breakpoints.down('sm')]: {
           fontSize: '1em',
@@ -168,9 +170,7 @@ const AppStyle = theme => ({
         }
       },
       aboutTitle: {
-        [theme.breakpoints.down('sm')]: {
-          fontSize: '1em',
-        }
+        fontSize: '1em',
       },
       aboutValue: {
         color: '#dee0df',
