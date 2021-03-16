@@ -80,7 +80,7 @@ const ContactForm = () => {
         setLoading(true);
 
         try {
-            await axios.post('https://us-central1-ohnestpos-db448.cloudfunctions.net/app/portfolio/sendmailtogmail', formInfo);
+            await axios.post('https://us-central1-ohnestpos-db448.cloudfunctions.net/app/portfolio/sendportfoliomail', formInfo);
             setAlertInfo({
                 severity: 'success',
                 message: `Thanks for your message! I'll mail my response`,
