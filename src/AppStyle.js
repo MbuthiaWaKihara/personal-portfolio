@@ -29,6 +29,9 @@ const AppStyle = theme => ({
         height: '90%',
         marginTop: '15%',
         objectFit: 'cover',
+        [theme.breakpoints.up('lg')]: {
+          marginTop: '17%',
+        }
       },
       profileImage2: {
         width: '100%',
