@@ -49,6 +49,13 @@ const ContactForm = () => {
         email: '',
         message: '',
     });
+
+    const isEmail = email => {
+        //eslint-disable-next-line
+        let emailRegEx = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+        if(email.trim().match(emailRegEx)) return true;
+        return false;
+    }
     
     const handleChange = event => {
         setFormInfo({
@@ -72,6 +79,15 @@ const ContactForm = () => {
             setAlertInfo({
                 severity: 'info',
                 message: 'please fill all the fields',
+            });
+            setOpen(true);
+            return;
+        }
+
+        if(!isEmail(formInfo.email)) {
+            setAlertInfo({
+                severity: 'info',
+                message: 'please enter a valid email',
             });
             setOpen(true);
             return;

@@ -132,10 +132,7 @@ const ImageSlider = ({name}) => {
         determineImagesArray();
         //eslint-disable-next-line
     }, [name]);
-
-    React.useEffect(() => {
-        console.log("images", images);
-    }, [images]);
+    
     return (
         <>
             <div
