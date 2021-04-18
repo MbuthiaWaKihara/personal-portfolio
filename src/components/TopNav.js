@@ -13,7 +13,7 @@ import { makeStyles } from '@material-ui/core/styles';
 
 const useStyles = makeStyles((theme) => ({
   image: {
-    height: '120px',
+    height: '90px',
     marginLeft: '5%',
     [theme.breakpoints.down('sm')]: {
       height: '70px',
