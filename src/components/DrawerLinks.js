@@ -4,7 +4,7 @@ import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 
 import Drawer from '@material-ui/core/Drawer';
-import Button from '@material-ui/core/Button';
+import IconButton from '@material-ui/core/IconButton';
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 import Divider from '@material-ui/core/Divider';
@@ -15,10 +15,12 @@ import MenuIcon from '@material-ui/icons/Menu';
 
 const useStyles = makeStyles( theme => ({
     trigger: {
-        marginLeft: '200%',
         [theme.breakpoints.up('md')]: {
             display: 'none',
-        }
+        },
+        position: 'absolute',
+        right: 0,
+        top: 0,
     },
     link: {
         cursor: 'pointer',
@@ -42,9 +44,10 @@ export default function DrawerLinks({scrollToTargetView, currentSection}) {
   }
 
   return (
-    <div>
+    <div
+    >
         <React.Fragment>
-          <Button onClick={() => setOpen(true)} className={classes.trigger}><MenuIcon /></Button>
+          <IconButton onClick={() => setOpen(true)} className={classes.trigger}><MenuIcon /></IconButton>
           <Drawer anchor="bottom" open={open} onClose={() => setOpen(false)}>
             <div
             role="presentation"
