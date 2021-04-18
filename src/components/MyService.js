@@ -24,6 +24,7 @@ const useStyles = makeStyles(theme => ({
         flexDirection: 'row',
         width: '100%',
         height: '50px',
+        marginTop: '5%',
     }
 }));
 
