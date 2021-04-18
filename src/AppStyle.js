@@ -31,7 +31,8 @@ const AppStyle = theme => ({
         objectFit: 'cover',
         [theme.breakpoints.up('lg')]: {
           marginTop: '17%',
-        }
+        },
+        boxShadow: `10px 0px 10px #333333`,
       },
       profileImage2: {
         width: '100%',
@@ -40,7 +41,8 @@ const AppStyle = theme => ({
         objectFit: 'cover',
         [theme.breakpoints.up('lg')]: {
           display: 'none',
-        }
+        },
+        boxShadow: `0px 10px 10px #333333`,
       },
       scrollCenter: {
         paddingTop: '10%',
