@@ -292,7 +292,7 @@ function App() {
         variant="outlined"
         className={classes.contactButton}
         component="a"
-        href="/my-cv.docx"
+        href="/mbuthia-kihara-cv.docx"
         download
         >DOWNLOAD CV </Button>
        </ScreenContainer>
