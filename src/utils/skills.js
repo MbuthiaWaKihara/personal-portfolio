@@ -4,7 +4,7 @@ const rawSkills = [
     {
         name: 'JavaScript',
         value: 77,
-        notes: ['VanillaJS', 'ES6', 'JQuery', 'Lodash'],
+        notes: ['VanillaJS', 'ES6', 'JQuery', 'Lodash', 'Polymer'],
     },
     {
         name: 'TypeScript',
@@ -19,12 +19,12 @@ const rawSkills = [
     {
         name: 'React',
         value: 92,
-        notes: ['CRA', 'NextJS', 'Material UI', 'React Bootstrap', 'Styled Components', 'React Suite', 'React Redux', 'General React Ecosystem'],
+        notes: ['CRA', 'NextJS', 'Material UI', 'React Bootstrap', 'Styled Components', 'React Suite', 'React Redux', , 'React Query', 'General React Ecosystem'],
     },
     {
         name: 'React Native',
         value: 85,
-        notes: ['Expo CLI', 'React Native CLI', 'React Native Redux', 'Styled Components', 'General React Native Ecosystem'],
+        notes: ['Expo CLI', 'React Native CLI', 'React Native Redux', 'React Query', 'Styled Components', 'General React Native Ecosystem'],
     },
     {
         name: 'Redux',
