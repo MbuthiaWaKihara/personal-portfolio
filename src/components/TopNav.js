@@ -8,7 +8,10 @@ import PropTypes from 'prop-types';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import useScrollTrigger from '@material-ui/core/useScrollTrigger';
-import { makeStyles } from '@material-ui/core/styles';
+import Slide from '@material-ui/core/Slide';
+import makeStyles from '@material-ui/core/styles/makeStyles';
+import useTheme from '@material-ui/core/styles/useTheme';
+import useMediaQuery from '@material-ui/core/useMediaQuery';
 
 
 const useStyles = makeStyles((theme) => ({
@@ -23,20 +26,58 @@ const useStyles = makeStyles((theme) => ({
 
 
 function ElevationScroll({children, window}) {
+    const theme = useTheme();
+    const largeScreen = useMediaQuery(theme.breakpoints.up('md'));
+
     const trigger = useScrollTrigger({
       disableHysteresis: true,
       threshold: 0,
       target: window ? window() : undefined,
     });
   
-    return React.cloneElement(children, {
-      elevation: trigger ? 4 : 0,
-    });
+    if(largeScreen) {
+      return React.cloneElement(children, {
+        elevation: trigger ? 4 : 0,
+      });
+    }
+
+    return (
+      <>
+        {children}
+      </>
+    )
   }
 
   ElevationScroll.propTypes = {
     children: PropTypes.element.isRequired,
     window: PropTypes.func,
+  };
+
+  function HideOnScroll(props) {
+    const theme = useTheme();
+    const smallScreen = useMediaQuery(theme.breakpoints.down('sm'));
+
+    const { children } = props;
+   
+    const trigger = useScrollTrigger();
+  
+    if(smallScreen) {
+      return (
+        <Slide appear={false} direction="down" in={!trigger}>
+          {children}
+        </Slide>
+      );
+    }
+
+    return (
+      <>
+        {children}
+      </>
+    )
+  }
+  
+  HideOnScroll.propTypes = {
+    children: PropTypes.element.isRequired,
   };
 
 
@@ -76,6 +117,7 @@ const TopNav = ({scrollToTargetView, pageElements}) => {
     return (
         <>
             <ElevationScroll>
+                <HideOnScroll>
                 <AppBar>
                     <Toolbar>
                         <img
@@ -93,6 +135,7 @@ const TopNav = ({scrollToTargetView, pageElements}) => {
                         />
                     </Toolbar>
                 </AppBar>
+                </HideOnScroll>
             </ElevationScroll>
             
         </>
