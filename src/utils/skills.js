@@ -19,7 +19,7 @@ const rawSkills = [
     {
         name: 'React',
         value: 92,
-        notes: ['CRA', 'NextJS', 'Material UI', 'React Bootstrap', 'Styled Components', 'React Suite', 'React Redux', , 'React Query', 'General React Ecosystem'],
+        notes: ['CRA', 'NextJS', 'Material UI', 'React Bootstrap', 'Styled Components', 'React Suite', 'React Redux', 'React Query', 'General React Ecosystem'],
     },
     {
         name: 'React Native',
