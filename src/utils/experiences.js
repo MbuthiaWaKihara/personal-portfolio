@@ -14,6 +14,8 @@ const rawExperiences = [
         institution: `Iconic King`,
         body: `Iconic King is a software company that majors on betting systems and internet games. I work as
         a part time software developer. I help develop and maintain backend code for their main products.`,
+        linkText: `SEE OFFICIAL ICONIC KING WEBSITE`,
+        link: `https://iconicking.com/`,
     },
     {
         date: `SEPTEMBER 2019 - DECEMBER 2019`,
@@ -22,6 +24,8 @@ const rawExperiences = [
          I worked on a few projects while at ASC, including contributing to the implementation of cStockV2,
          which is a mobile app that helps manage the distribution of drugs by community health units. We
          used ReactJS, React Native and DHIS2 as our major tech stack. I helped in code maintenance and testing.`,
+        linkText: `SEE OFFICIAL ASC WEBSITE`,
+        link: `https://aurasafira.co.ke/`,
     },
 ];
 
