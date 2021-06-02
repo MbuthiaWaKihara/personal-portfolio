@@ -3,7 +3,7 @@ import Institution from '../components/Institution';
 const rawExperiences = [
     {
         date: `JUNE 2021 - PRESENT`,
-        institution: `Upwork (https//:www.upwork.com)`,
+        institution: `Upwork`,
         body: `I receive either one time or long term projects from clients as a freelancer. I 
         also do work on audio transcription.`,
         linkText: `VISIT MY UPWORK PROFILE`,
