@@ -24,11 +24,25 @@ const useStyles = makeStyles(theme => ({
             height: '280px',
         }
     },
+    link: {
+        marginTop: '1%',
+        marginBottom: '1%',
+        fontWeight: 'bold',
+        cursor: 'pointer',
+        [theme.breakpoints.down('sm')]: {
+            fontSize: '.7em',
+        }
+    },
 }));
 
 const Institution = ({details, education}) => {
 
     const classes = useStyles();
+
+    const redirectNewTab = url => {
+        window.open(url, '_blank');
+    } 
+
     return (
         <>
             <Typography
@@ -49,6 +63,15 @@ const Institution = ({details, education}) => {
             variant="body1"
             color="textPrimary"
             >{details.body}</Typography>
+            {
+                details.link && details.linkText &&
+                <Typography
+                variant="body1"
+                className={classes.link}
+                color="textSecondary"
+                onClick={() => redirectNewTab(details.link)}
+                >{details.linkText}</Typography>
+            }
         </>
     )
 }

@@ -2,6 +2,14 @@ import Institution from '../components/Institution';
 
 const rawExperiences = [
     {
+        date: `JUNE 2021 - PRESENT`,
+        institution: `Upwork (https//:www.upwork.com)`,
+        body: `I receive either one time or long term projects from clients as a freelancer. I 
+        also do work on audio transcription.`,
+        linkText: `VISIT MY UPWORK PROFILE`,
+        link: `https://www.upwork.com/freelancers/~016190fe020ab1c06a`,
+    },
+    {
         date: `AUGUST 2020 - PRESENT`,
         institution: `Iconic King`,
         body: `Iconic King is a software company that majors on betting systems and internet games. I work as
