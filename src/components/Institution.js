@@ -20,13 +20,11 @@ const useStyles = makeStyles(theme => ({
         marginTop: '5%',
         height: '200px',
         [theme.breakpoints.down('sm')]: {
-            marginBottom: '10%',
+            marginBottom: '5%',
             height: '280px',
         }
     },
     link: {
-        marginTop: '1%',
-        marginBottom: '1%',
         fontWeight: 'bold',
         cursor: 'pointer',
         [theme.breakpoints.down('sm')]: {
