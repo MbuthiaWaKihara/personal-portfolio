@@ -3,11 +3,14 @@ import MyLogo from '../images/my-logo.png';
 
 //MUI
 import { makeStyles } from '@material-ui/core/styles';
+import useTheme from '@material-ui/core/styles/useTheme';
 
 import Backdrop from '@material-ui/core/Backdrop';
 
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import ChevronRightIcon from '@material-ui/icons/ChevronRight';
+
+import SwipeableViews from 'react-swipeable-views';
 
 const useStyles = makeStyles(theme => ({
     container: {
@@ -31,7 +34,7 @@ const useStyles = makeStyles(theme => ({
         justifyContent: 'center',
     },
     image: {
-        width: '80%',
+        width: '100%',
         height: '25em',
         objectFit: 'cover',
         cursor: 'pointer',
@@ -51,6 +54,23 @@ const useStyles = makeStyles(theme => ({
         [theme.breakpoints.down('sm')]: {
             height: '50%',
         }
+    },
+    imagesIndicatorsContainer: {
+        marginTop: 5,
+        height: '1em',
+        display: 'flex',
+        flexDirection: 'row',
+        alignItems: 'center',
+        justifyContent: 'center',
+    },
+    imageIndicator: {
+        width: '3%',
+        height: '90%',
+        borderRadius: '50%',
+        margin: 5,
+        [theme.breakpoints.up('md')]: {
+            width: '2%',
+        }
     }
 }));
 
@@ -60,6 +80,7 @@ const ImageSlider = ({name}) => {
     const [currentImageIndex, setCurrentImageIndex] = React.useState(0);
     const [images, setImages] = React.useState([MyLogo]);
     const [open, setOpen] = React.useState(false);
+    const theme = useTheme();
 
     const handleOpen = () => {
         setOpen(true);
@@ -148,12 +169,24 @@ const ImageSlider = ({name}) => {
                         <ChevronLeftIcon className={classes.icon} color="secondary"/>
                     </div>
                 </div>
-                <img
-                className={classes.image}
-                src={images[currentImageIndex]}
-                alt="slider"
-                onClick={handleOpen}
-                />
+                <SwipeableViews
+                index={currentImageIndex}
+                onChangeIndex={index => setCurrentImageIndex(index)}
+                style={{
+                    alignItems: 'center',
+                }}
+                >
+                    {
+                        images.map(image => (
+                            <img
+                            className={classes.image}
+                            src={image}
+                            alt="slider"
+                            onClick={handleOpen}
+                            />
+                        ))
+                    }
+                </SwipeableViews>
                 <div
                 className={classes.indicatorContainer}
                 >
@@ -164,6 +197,20 @@ const ImageSlider = ({name}) => {
                         <ChevronRightIcon className={classes.icon} color="secondary"/>
                     </div>
                 </div>
+            </div>
+            <div
+            className={classes.imagesIndicatorsContainer}
+            >
+                {
+                    images.map((_, index) => (
+                        <div
+                        className={classes.imageIndicator}
+                        style={{
+                            backgroundColor: currentImageIndex === index ? theme.palette.secondary.main : theme.palette.primary.contrastText,
+                        }}
+                        />                        
+                    ))
+                }
             </div>
             <Backdrop
             open={open}
