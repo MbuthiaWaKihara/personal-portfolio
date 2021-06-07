@@ -5,6 +5,7 @@ import Me from './images/me.jpg';
 import MeChess from './images/me2.jpg';
 import Typist from 'react-typist';
 import AppStyle from './AppStyle';
+import MyLogo from './images/my-logo.png';
 
 //MUI
 import { ThemeProvider as MUIThemeProvider, useTheme, makeStyles } from '@material-ui/core/styles';
@@ -18,6 +19,7 @@ import Zoom from '@material-ui/core/Zoom';
 import useScrollTrigger from '@material-ui/core/useScrollTrigger';
 import Button from '@material-ui/core/Button';
 import useMediaQuery from '@material-ui/core/useMediaQuery';
+import Backdrop from '@material-ui/core/Backdrop';
 
 
 import KeyboardArrowUpIcon from '@material-ui/icons/KeyboardArrowUp';
@@ -102,12 +104,17 @@ ScrollTop.propTypes = {
   window: PropTypes.func,
 };
 
+export const BackdropContext = React.createContext();
+
 function App() {
   const classes = useStyles();
   const innerTheme = useTheme();
   const callMatch = useMediaQuery(innerTheme.breakpoints.down('sm'));
   const [pageElements, setPageElements] = React.useState(null);
   const date = new Date();
+
+  const [open, setOpen] = React.useState(false);
+  const [focusedImage, setFocusedImage] = React.useState(MyLogo);
 
   const redirectNewTab = url => {
     window.open(url, '_blank');
@@ -139,6 +146,12 @@ function App() {
   return (
     <>
     <MUIThemeProvider theme={theme}>
+    <BackdropContext.Provider
+    value={{
+      openBackdrop: () => setOpen(true),
+      setFocusedImage,
+    }}
+    >
     <TopNav 
     scrollToTargetView={scrollToTargetView}
     pageElements={pageElements}
@@ -450,11 +463,23 @@ function App() {
         </MyLinksContainer>
       </Grid>
     </Grid>
+    <Backdrop
+    open={open}
+    onClick={() => setOpen(false)}
+    className={classes.backdrop}
+    >
+        <img
+        className={classes.selectedImage}
+        src={focusedImage}
+        alt="Focused"
+        />
+    </Backdrop>
     <ScrollTop >
         <Fab color="secondary" size="small" aria-label="scroll back to top">
         <KeyboardArrowUpIcon />
         </Fab>
     </ScrollTop>
+    </BackdropContext.Provider>
     </MUIThemeProvider>
     </>
   );

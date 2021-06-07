@@ -188,6 +188,17 @@ const AppStyle = theme => ({
         width: '100%',
         marginTop: '10%',
       },
-});
+      backdrop: {
+        zIndex: theme.zIndex.drawer + 1,
+        color: '#fff',
+      },
+      selectedImage: {
+          height: '80%',
+          objectFit: 'cover',
+          [theme.breakpoints.down('sm')]: {
+              height: '50%',
+          }
+      },
+  });
 
 export default AppStyle;

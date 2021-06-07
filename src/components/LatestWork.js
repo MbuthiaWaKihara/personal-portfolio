@@ -44,7 +44,7 @@ const useStyles = makeStyles(theme => ({
         [theme.breakpoints.down('sm')]: {
             fontSize: '.8em',
         }
-    }
+    },
 }));
 
 const LatestWork = ({latestWork}) => {

@@ -1,11 +1,10 @@
 import React from 'react';
+import {BackdropContext} from '../App';
 import MyLogo from '../images/my-logo.png';
 
 //MUI
 import { makeStyles } from '@material-ui/core/styles';
 import useTheme from '@material-ui/core/styles/useTheme';
-
-import Backdrop from '@material-ui/core/Backdrop';
 
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import ChevronRightIcon from '@material-ui/icons/ChevronRight';
@@ -44,17 +43,6 @@ const useStyles = makeStyles(theme => ({
     },
     icon: {
     },
-    backdrop: {
-        zIndex: theme.zIndex.drawer + 1,
-        color: '#fff',
-    },
-    selectedImage: {
-        height: '80%',
-        objectFit: 'cover',
-        [theme.breakpoints.down('sm')]: {
-            height: '50%',
-        }
-    },
     imagesIndicatorsContainer: {
         marginTop: 5,
         height: '1em',
@@ -79,16 +67,8 @@ const ImageSlider = ({name}) => {
     const classes = useStyles();
     const [currentImageIndex, setCurrentImageIndex] = React.useState(0);
     const [images, setImages] = React.useState([MyLogo]);
-    const [open, setOpen] = React.useState(false);
     const theme = useTheme();
-
-    const handleOpen = () => {
-        setOpen(true);
-    }
-
-    const handleClose = () => {
-        setOpen(false);
-    }
+    const { openBackdrop, setFocusedImage } = React.useContext(BackdropContext);
 
     const determineImagesArray = async () => {
         let directory = '';
@@ -182,7 +162,7 @@ const ImageSlider = ({name}) => {
                             className={classes.image}
                             src={image}
                             alt="slider"
-                            onClick={handleOpen}
+                            onClick={() => {openBackdrop(); setFocusedImage(image)}}
                             />
                         ))
                     }
@@ -212,17 +192,6 @@ const ImageSlider = ({name}) => {
                     ))
                 }
             </div>
-            <Backdrop
-            open={open}
-            onClick={handleClose}
-            className={classes.backdrop}
-            >
-                <img
-                className={classes.selectedImage}
-                src={images[currentImageIndex]}
-                alt="Focused"
-                />
-            </Backdrop>
         </>
     )
 }
