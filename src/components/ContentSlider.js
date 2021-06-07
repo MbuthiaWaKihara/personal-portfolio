@@ -5,6 +5,7 @@ import { makeStyles } from '@material-ui/core/styles';
 
 //components
 import  ControlsContainer from './ControlsContainer';
+import SwipeableViews from 'react-swipeable-views';
 
 const useStyles = makeStyles(theme => ({
     topControlContainer: {
@@ -77,11 +78,20 @@ const ContentSlider = ({elements}) => {
                 changeCurrentDownwards={changeCurrentDownwards}
                 />
             </div> */}
-            <div
-            className={classes.contentContainer}
+            <SwipeableViews
+            index={currentElement}
+            onChangeIndex={index => setCurrentElement(index)}
             >
-                {elements[currentElement]}
-            </div>
+                {
+                    elements.map(element => (
+                        <div
+                        className={classes.contentContainer}
+                        >
+                            {element}
+                        </div>
+                    ))
+                }
+            </SwipeableViews>
             <div
             className={classes.bottomControlContainer}
             >
