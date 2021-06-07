@@ -52,13 +52,10 @@ const useStyles = makeStyles(theme => ({
         justifyContent: 'center',
     },
     imageIndicator: {
-        width: '3%',
-        height: '90%',
+        width: 3,
+        height: 3,
         borderRadius: '50%',
         margin: 5,
-        [theme.breakpoints.up('md')]: {
-            width: '2%',
-        }
     }
 }));
 
