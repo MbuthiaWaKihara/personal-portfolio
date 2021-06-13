@@ -1,28 +1,7 @@
 import LatestWork from '../components/LatestWork';
 
 const rawLatestWorks = [
-    {
-        name: 'Tension Chess Clock',
-        links: [
-            {
-                title: "VIEW ON GOOGLE PLAY STORE",
-                url: "https://play.google.com/store/apps/details?id=com.tensionchessclock",
-            },
-            {
-                title: "VIEW GITHUB REPO",
-                url: "https://github.com/MbuthiaWaKihara/TensionChessClock",
-            }
-        ],
-        readMore: `
-        Probably due to competition, I noticed that most chess clock android apps have overdone features. 
-        As a result, being a chess player myself, it takes time to learn the interfaces and processes of a chess
-        clock app before being able to exhaust its features, or even set up a quick game. This is what inspired 
-        me to make a simple chess clock, with quick game set up. Tension chess clock capitalizes on a chess
-        player's ability to set up a game fast. It ships with simple interfaces, zero ads and 100% offline feature availability. App powered
-        by React Native (react-native-cli)
-        `
-    },
-    {
+       {
         name: 'Sorting Algorithms Visualizer',
         links: [
             {
@@ -44,6 +23,27 @@ const rawLatestWorks = [
         enough to answer questions in exams and interviews. This app visualizes sorting algorithms specifically. There are plenty of 
         sorting algorithms visualizers out there, what makes this one different is the ability to change visualization speed,
         and size of the array, on the fly, even during sorting. App powered by React and Redux.
+        `
+    },
+    {
+        name: 'Tension Chess Clock',
+        links: [
+            {
+                title: "VIEW ON GOOGLE PLAY STORE",
+                url: "https://play.google.com/store/apps/details?id=com.tensionchessclock",
+            },
+            {
+                title: "VIEW GITHUB REPO",
+                url: "https://github.com/MbuthiaWaKihara/TensionChessClock",
+            }
+        ],
+        readMore: `
+        Probably due to competition, I noticed that most chess clock android apps have overdone features. 
+        As a result, being a chess player myself, it takes time to learn the interfaces and processes of a chess
+        clock app before being able to exhaust its features, or even set up a quick game. This is what inspired 
+        me to make a simple chess clock, with quick game set up. Tension chess clock capitalizes on a chess
+        player's ability to set up a game fast. It ships with simple interfaces, zero ads and 100% offline feature availability. App powered
+        by React Native (react-native-cli)
         `
     },
     {
