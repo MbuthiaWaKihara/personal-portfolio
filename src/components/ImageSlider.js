@@ -10,6 +10,9 @@ import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import ChevronRightIcon from '@material-ui/icons/ChevronRight';
 
 import SwipeableViews from 'react-swipeable-views';
+import { autoPlay } from 'react-swipeable-views-utils';
+
+const AutoPlaySwipeableViews = autoPlay(SwipeableViews);
 
 const useStyles = makeStyles(theme => ({
     container: {
@@ -146,7 +149,7 @@ const ImageSlider = ({name}) => {
                         <ChevronLeftIcon className={classes.icon} color="secondary"/>
                     </div>
                 </div>
-                <SwipeableViews
+                <AutoPlaySwipeableViews
                 index={currentImageIndex}
                 onChangeIndex={index => setCurrentImageIndex(index)}
                 style={{
@@ -163,7 +166,7 @@ const ImageSlider = ({name}) => {
                             />
                         ))
                     }
-                </SwipeableViews>
+                </AutoPlaySwipeableViews>
                 <div
                 className={classes.indicatorContainer}
                 >
