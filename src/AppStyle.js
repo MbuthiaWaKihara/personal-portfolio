@@ -14,6 +14,11 @@ const AppStyle = theme => ({
         // marginTop: '7.5%',
       },
       stickyLeft: {
+        backgroundColor: '#00FFC2',
+        '&:hover': {
+          backgroundColor: '#373B40',
+          width: '40.5%',
+        },
         height: window.innerHeight,
         width: '40%',
         position: 'fixed',
@@ -25,6 +30,11 @@ const AppStyle = theme => ({
         }
       },
       profileImage: {
+        '&:hover': {
+          opacity: '.8',
+        },
+        opacity: '.5',
+        cursor: 'pointer',
         width: '100%',
         height: '90%',
         marginTop: '15%',
