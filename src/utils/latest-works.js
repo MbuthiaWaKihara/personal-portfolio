@@ -77,7 +77,7 @@ const rawLatestWorks = [
         or online retails, which creates a huge gap for small businesses, which form majority of Kenyan businesses setups. Ohnest POS
         is my idea of one way this gap can be bridged. This POS is different because first it is based on android/ios. Majority
         of business owners and employees already own smart phones. Second, it stores products with images, besides textual data,
-        which makes interacting with it similar to shopping online, which is a familiar experience for most Kenyans. Ohnest POS is currently in beta release. App powered by React Native (react-native-cli) and Firebase.
+        which makes interacting with it similar to shopping online, which is a familiar experience for most Kenyans. Ohnest POS is currently in its initial release. App powered by React Native (react-native-cli) and Firebase.
         `,
   },
   {
