@@ -1,7 +1,7 @@
 import React from 'react';
 
 //MUI
-import { makeStyles } from '@material-ui/core/styles';
+import {makeStyles} from '@material-ui/core/styles';
 
 import Drawer from '@material-ui/core/Drawer';
 import IconButton from '@material-ui/core/IconButton';
@@ -12,105 +12,122 @@ import Typography from '@material-ui/core/Typography';
 
 import MenuIcon from '@material-ui/icons/Menu';
 
-
-const useStyles = makeStyles( theme => ({
-    trigger: {
-        [theme.breakpoints.up('md')]: {
-            display: 'none',
-        },
-        position: 'absolute',
-        right: 0,
-        top: 0,
+const useStyles = makeStyles((theme) => ({
+  trigger: {
+    [theme.breakpoints.up('md')]: {
+      display: 'none',
     },
-    link: {
-        cursor: 'pointer',
-        fontSize: '1em',
-    },
+    position: 'absolute',
+    right: 0,
+    top: 0,
+  },
+  link: {
+    cursor: 'pointer',
+    fontSize: '1em',
+  },
 }));
 
 export default function DrawerLinks({scrollToTargetView, currentSection}) {
-
-  const classes = useStyles()
+  const classes = useStyles();
   const [open, setOpen] = React.useState(false);
 
   const scrollAndCloseDrawer = (targetView) => {
-    if(currentSection === targetView) {
+    if (currentSection === targetView) {
       setOpen(false);
     }
     scrollToTargetView(targetView);
     setTimeout(() => {
-      setOpen(false)
+      setOpen(false);
     }, 800);
-  }
+  };
 
   return (
-    <div
-    >
-        <React.Fragment>
-          <IconButton onClick={() => setOpen(true)} className={classes.trigger}><MenuIcon /></IconButton>
-          <Drawer anchor="bottom" open={open} onClose={() => setOpen(false)}>
-            <div
-            role="presentation"
-            >
+    <div>
+      <React.Fragment>
+        <IconButton onClick={() => setOpen(true)} className={classes.trigger}>
+          <MenuIcon />
+        </IconButton>
+        <Drawer anchor="bottom" open={open} onClose={() => setOpen(false)}>
+          <div role="presentation">
             <List>
-                <ListItem 
+              <ListItem
                 button
-                onClick={() => scrollAndCloseDrawer('home-section')}
-                >
+                onClick={() => scrollAndCloseDrawer('home-section')}>
                 <Typography
-                variant="h6"
-                color={currentSection === 'home-section' ? 'secondary' : 'textPrimary'}
-                className={classes.link}
-                >Home</Typography>
-                </ListItem>
-      
-                <ListItem 
+                  variant="h6"
+                  color={
+                    currentSection === 'home-section'
+                      ? 'secondary'
+                      : 'textPrimary'
+                  }
+                  className={classes.link}>
+                  Home
+                </Typography>
+              </ListItem>
+
+              <ListItem
                 button
-                onClick={() => scrollAndCloseDrawer('about-section')}
-                >
+                onClick={() => scrollAndCloseDrawer('about-section')}>
                 <Typography
-                variant="h6"
-                color={currentSection === 'about-section' ? 'secondary' : 'textPrimary'}
-                className={classes.link}
-                >About</Typography>
-                </ListItem>
-                
-                <ListItem 
+                  variant="h6"
+                  color={
+                    currentSection === 'about-section'
+                      ? 'secondary'
+                      : 'textPrimary'
+                  }
+                  className={classes.link}>
+                  About
+                </Typography>
+              </ListItem>
+
+              <ListItem
                 button
-                onClick={() => scrollAndCloseDrawer('resume-section')}
-                >
+                onClick={() => scrollAndCloseDrawer('resume-section')}>
                 <Typography
-                variant="h6"
-                color={currentSection === 'resume-section' ? 'secondary' : 'textPrimary'}
-                className={classes.link}
-                >Resume</Typography>
-                </ListItem>
-            
-                <ListItem 
+                  variant="h6"
+                  color={
+                    currentSection === 'resume-section'
+                      ? 'secondary'
+                      : 'textPrimary'
+                  }
+                  className={classes.link}>
+                  Resume
+                </Typography>
+              </ListItem>
+
+              <ListItem
                 button
-                onClick={() => scrollAndCloseDrawer('portfolio-section')}
-                >
+                onClick={() => scrollAndCloseDrawer('portfolio-section')}>
                 <Typography
-                variant="h6"
-                color={currentSection === 'portfolio-section' ? 'secondary' : 'textPrimary'}
-                className={classes.link}
-                >Portfolio</Typography>
-                </ListItem>
-                <Divider />
-                <ListItem 
+                  variant="h6"
+                  color={
+                    currentSection === 'portfolio-section'
+                      ? 'secondary'
+                      : 'textPrimary'
+                  }
+                  className={classes.link}>
+                  Portfolio
+                </Typography>
+              </ListItem>
+              <Divider />
+              <ListItem
                 button
-                onClick={() => scrollAndCloseDrawer('contact-section')}
-                >
+                onClick={() => scrollAndCloseDrawer('contact-section')}>
                 <Typography
-                variant="h6"
-                color={currentSection === 'contact-section' ? 'secondary' : 'textPrimary'}
-                className={classes.link}
-                >Contact</Typography>
-                </ListItem>
+                  variant="h6"
+                  color={
+                    currentSection === 'contact-section'
+                      ? 'secondary'
+                      : 'textPrimary'
+                  }
+                  className={classes.link}>
+                  Contact
+                </Typography>
+              </ListItem>
             </List>
-            </div>
-          </Drawer>
-        </React.Fragment>
+          </div>
+        </Drawer>
+      </React.Fragment>
     </div>
   );
 }

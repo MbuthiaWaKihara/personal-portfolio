@@ -1,4 +1,4 @@
-import Institution from "../components/Institution";
+import Institution from '../components/Institution';
 
 const rawEducation = [
   {
