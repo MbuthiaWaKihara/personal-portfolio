@@ -30,6 +30,7 @@ const AppStyle = (theme) => ({
     },
   },
   profileImage: {
+    transition: '1s',
     '&:hover': {
       opacity: '.8',
     },
