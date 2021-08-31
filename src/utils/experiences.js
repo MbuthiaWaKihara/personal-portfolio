@@ -19,7 +19,7 @@ const rawExperiences = [
     link: `https://www.upwork.com/freelancers/~016190fe020ab1c06a`,
   },
   {
-    date: `AUGUST 2020 - PRESENT`,
+    date: `AUGUST 2020 - AUGUST 2021`,
     institution: `Iconic King`,
     body: `Iconic King is a software company that majors on betting systems and internet games. I work as
         a part time software developer. I help develop and maintain backend code for their main products.`,
