@@ -244,7 +244,7 @@ function App() {
                 </Typography>
                 <Typography variant="body1" className={classes.bodyText}>
                   I love working in a productive team. I’m currently a
-                  freelancer at upwork.
+                  Frontend Developer at GroupApp.
                 </Typography>
                 <div className={classes.aboutSummaryContainer}>
                   <div className={classes.aboutSummaryUnit}>
