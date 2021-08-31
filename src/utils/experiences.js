@@ -2,6 +2,15 @@ import Institution from '../components/Institution';
 
 const rawExperiences = [
   {
+    date: `AUGUST 2021 - PRESENT`,
+    institution: `GroupApp`,
+    body: `GroupApp is a platform for online communities and content creators. Working remotely as a Frontend developer,
+     I help with adding new features to the GroupApp web app.
+    I corporate with my teammates to ensure a smooth user experience for GroupApp users.`,
+    linkText: `VISIT GROUPAPP HOME PAGE`,
+    link: `https://group.app`,
+  },
+  {
     date: `JUNE 2021 - PRESENT`,
     institution: `Upwork`,
     body: `I receive either one time or long term projects from clients as a freelancer. I 
