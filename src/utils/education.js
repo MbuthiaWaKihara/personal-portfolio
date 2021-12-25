@@ -4,7 +4,7 @@ const rawEducation = [
   {
     date: `SEPTEMBER 2016 - JUNE 2021`,
     institution: `Moi University`,
-    body: `Bachelor of Science (Computer Science). Awaiting Graduation`,
+    body: `Bachelor of Science (Computer Science).`,
   },
   {
     date: `JULY 2016 - AUGUST 2016`,

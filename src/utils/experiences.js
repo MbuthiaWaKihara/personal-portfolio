@@ -6,7 +6,7 @@ const rawExperiences = [
     institution: `GroupApp`,
     body: `GroupApp is a platform for online communities and content creators. Working remotely as a Frontend developer,
      I help with adding new features to the GroupApp web app.
-    I corporate with my teammates to ensure a smooth user experience for GroupApp users.`,
+    I cooperate with my teammates to ensure a smooth user experience for GroupApp users.`,
     linkText: `VISIT GROUPAPP HOME PAGE`,
     link: `https://group.app`,
   },
